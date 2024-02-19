@@ -3,7 +3,7 @@ import axios from "axios";
 import { createClient } from '@supabase/supabase-js'
 
 // Setting up environment variables
-const { SUPABASE_ENDPOINT, SUPABASE_API_KEY_PRIVATE, CONGRESS_API_KEY, CONGRESS_API_ENDPOINT } = process.env;
+const { SUPABASE_ENDPOINT, SUPABASE_API_KEY_PRIVATE, CONGRESS_API_KEY, CONGRESS_API_ENDPOINT } : any = process.env ;
 
 // Creating a Supabase client
 const supabase = createClient(SUPABASE_ENDPOINT, SUPABASE_API_KEY_PRIVATE);
@@ -31,7 +31,7 @@ export const getData = async (bill_number = 0, bill_type = "H") => {
 };
 
 // Function to upsert data into a specified table
-const upsertData = async (table, data) => {
+const upsertData = async (table : any, data : any) => {
   const { error } = await supabase.from(table).upsert(data, { onConflict: 'number' });
   if (error) console.error(`Error occurred during upsert in ${table}:`, error);
 };
@@ -71,7 +71,7 @@ const handleTimer = () => {
 };
 
 // Main handler function
-export default async function handler(req, res) {
+export default async function handler(req : any, res: any) {
   // If the request method is GET, handle it
   if (req.method === "GET") {
     // Get the bill number and type from the query

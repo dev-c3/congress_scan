@@ -65,7 +65,7 @@ export default function Home() {
     );
   };
 
-  const BillDisplay = ({ bill }) => {
+  const BillDisplay = ({ bill }: { bill: any }) => {
     return (
       <Box>
         <Badge fontSize="sm" colorScheme="teal" mr="2">
@@ -145,7 +145,7 @@ export default function Home() {
             overflowY: "scroll", // Enable vertical scrolling
           }}
         >
-          {bills.map((item) => (
+          {bills.map((item: any) => (
             <div
               key={item.number}
               style={{
